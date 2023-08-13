@@ -19,7 +19,7 @@ const Header = () => {
    
   const navigate = useNavigate()
   const searchQueryHandler = (event) => {
-    if ((event?.key === "Enter" || event.key === "searchButton") && searchQuery?.length > 0) {
+    if ((event?.key === "Enter" || event === "searchButton") && searchQuery?.length > 0) {
       navigate(`/searchResult/${searchQuery}`)
     }
   }
@@ -69,9 +69,9 @@ const Header = () => {
               value={searchQuery}
 onChange={(e)=>setSearchQuery(e.target.value)}
               />
-              <button className='text-white text-[1.5vh] sm:w-[0.5vw] md:flex-3 md:w-[5vw] border-l-2'>Search</button>
+              <button onClick={() => searchQueryHandler("searchButton")} className='text-white text-[1.5vh] sm:w-[0.5vw] md:flex-3 md:w-[5vw] border-l-2'>Search</button>
             </div>
-            <div className="rightHeader flex items-center gap-2 ">
+            <div  className="rightHeader flex items-center gap-2 ">
 <FiBell className="text-white" />
 <BsFillGrid3X3GapFill className="text-white"/>
 <FaUserCircle className="text-white"/>
