@@ -19,7 +19,8 @@ const Header = () => {
    
   const navigate = useNavigate()
   const searchQueryHandler = (event) => {
-    if ((event?.key === "Enter" || event === "searchButton") && searchQuery?.length > 0) {
+    if (event?.key === "Enter" || event === "searchButton"|| searchQuery?.length > 0) {
+      
       navigate(`/searchResult/${searchQuery}`)
     }
   }
